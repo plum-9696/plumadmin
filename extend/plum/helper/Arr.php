@@ -1,5 +1,5 @@
 <?php
-
+namespace plum\helper;
 
 class Arr extends \think\helper\Arr
 {
