@@ -36,7 +36,9 @@ class ExceptionHandle extends Handle
      */
     public function report(Throwable $exception): void
     {
-        $this->app->log->record($exception, 'error');
+        if(!$this->isIgnoreReport($exception)){
+            $this->app->log->record($exception, 'error');
+        }
     }
 
     /**

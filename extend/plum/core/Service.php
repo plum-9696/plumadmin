@@ -34,6 +34,22 @@ class Service extends \think\Service
     {
         //跨域配置
         $this->allowCrossDomain();
+        //记录日志
+        $this->recordLog();
+    }
+
+    /**
+     * 记录日志
+     * @author Plum
+     * @email liujunyi_coder@163.com
+     * @time 2021年11月29日 13:39
+     */
+    public function recordLog()
+    {
+        //调试模式下,记录每一个请求方便开发查错
+        if(env('app_debug')){
+            trace("record log",'debug');
+        }
     }
 
     /**

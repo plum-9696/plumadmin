@@ -34,7 +34,7 @@ class File implements LogHandlerInterface
         }
 
         if (empty($this->config['path'])) {
-            $this->config['path'] = $app->getRuntimePath() . 'log';
+            $this->config['path'] =   app()->getRootPath(). 'runtime' . DIRECTORY_SEPARATOR . 'log';
         }
 
         if (substr($this->config['path'], -1) != DIRECTORY_SEPARATOR) {
