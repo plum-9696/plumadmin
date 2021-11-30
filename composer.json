@@ -17,7 +17,7 @@
         {
             "name": "yunwuxin",
             "email": "448901948@qq.com"
-        }        
+        }
     ],
     "require": {
         "php": ">=7.1.0",
@@ -29,7 +29,9 @@
         "workerman/redis-queue": "^1.0",
         "guzzlehttp/guzzle": "~6.0",
         "phpoffice/phpexcel": "^1.8",
-        "topthink/think-migration": "^3.0"
+        "topthink/think-migration": "^3.0",
+        "thans/thinkphp-filesystem-cloud": "^1.0",
+      "ext-bcmath": "*"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2",

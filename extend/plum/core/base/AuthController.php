@@ -30,10 +30,10 @@ abstract class AuthController extends Controller
         }
 
         //是否登录
-        if (isset($doc['auth']) && strtolower($doc['auth']) === 'true') {
-            $this->auth = true;
-        } else {
+        if (isset($doc['auth']) && strtolower($doc['auth']) === 'false') {
             $this->auth = false;
+        } else {
+            $this->auth = true;
         }
     }
 
