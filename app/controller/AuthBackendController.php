@@ -4,7 +4,6 @@ namespace app\controller;
 
 use app\model\FileModel;
 use plum\core\base\AuthController;
-use think\Model;
 
 class AuthBackendController extends AuthController
 {
@@ -14,7 +13,7 @@ class AuthBackendController extends AuthController
         // TODO: Implement checkPermission() method.
     }
 
-    public function getUserinfo($id): Model
+    public function getUserinfo($id)
     {
         // TODO: Implement getUserinfo() method.
         return FileModel::find();

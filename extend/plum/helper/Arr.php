@@ -1,4 +1,5 @@
 <?php
+
 namespace plum\helper;
 
 class Arr extends \think\helper\Arr
@@ -61,5 +62,27 @@ class Arr extends \think\helper\Arr
         $sortArray = array_column($array, $field);
         array_multisort($sortArray, $sort, SORT_NUMERIC, $array);
         return $array;
+    }
+
+    /**
+     * 指定获取数组,且设置默认值
+     * @author Plum
+     * @email liujunyi_coder@163.com
+     * @time 2021年11月30日 14:08
+     */
+    public static function onlyDefault($array, $name, $default = '')
+    {
+        $item = [];
+        foreach ($name as $key => $val) {
+
+            if (is_int($key)) {
+                $key = $val;
+            } else {
+                $default = $val;
+            }
+
+            $item[$key] = $array[$key] ?? $default;
+        }
+        return $item;
     }
 }

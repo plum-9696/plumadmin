@@ -3,7 +3,7 @@
 use think\migration\Migrator;
 use think\migration\db\Column;
 
-class File extends Migrator
+class Role extends Migrator
 {
     /**
      * Change Method.
@@ -28,15 +28,10 @@ class File extends Migrator
      */
     public function change()
     {
-        $this->table('file', ['comment' => "文件表"])
-            ->addColumn('name', 'string', ['comment' => '文件名','default'=>''])
-            ->addColumn('path', 'string', ['comment' => '文件地址','default'=>''])
-            ->addColumn('url', 'string', ['comment' => '文件地址','default'=>''])
-            ->addColumn('driver', 'string', ['comment' => '上传类型','default'=>''])
-            ->addColumn('mime', 'string', ['comment' => 'MIME类型','default'=>''])
-            ->addColumn('size', 'integer', ['comment' => '文件大小(B)','default'=>0])
-            ->addColumn('module', 'string', ['comment' => '应用名称','default'=>''])
-            ->addColumn('uploader_id', 'integer', ['comment' => '上传者ID','default'=>0])
+        $this->table('role',['comment'=>'角色表'])
+            ->addColumn('name','string',['comment'=>'角色名','default'=>''])
+            ->addColumn('remark','string',['comment'=>'备注','default'=>''])
+            ->addColumn('sort', 'integer', ['comment' => '排序(升序)','default'=>200])
             ->addTimestamps()
             ->addSoftDelete()
             ->save();

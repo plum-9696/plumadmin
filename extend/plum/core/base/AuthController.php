@@ -5,7 +5,6 @@ namespace plum\core\base;
 use plum\helper\Helper;
 use plum\lib\Token;
 use think\exception\HttpException;
-use think\Model;
 
 abstract class AuthController extends Controller
 {
@@ -106,7 +105,7 @@ abstract class AuthController extends Controller
      * @email liujunyi_coder@163.com
      * @time 2021年11月24日 17:17
      */
-    abstract public function getUserinfo($id): Model;
+    abstract public function getUserinfo($id);
 
     // 初始化
     protected function initialize()

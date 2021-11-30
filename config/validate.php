@@ -24,7 +24,7 @@ return [
         $rules = explode(',', $rule);
         $key = array_shift($rules);
         if (!isset($data[$key])) {
-            return "{$name}不能为空";
+            return "{$key}不能为空";
         }
         if ($rules === false || count($rules) < 1) {
             return "{$name}格式错误";
@@ -37,7 +37,7 @@ return [
             }
             return $item;
         }, $rules);
-        if (!in_array($data[$key], $rules)) {
+        if (in_array($data[$key], $rules) && ($value===null || $value==='')) {
             return "{$name}不能为空";
         }
         return true;

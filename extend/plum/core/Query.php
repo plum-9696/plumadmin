@@ -2,6 +2,7 @@
 
 namespace plum\core;
 
+use plum\helper\Arr;
 use plum\helper\Str;
 use think\Paginator;
 
@@ -62,15 +63,20 @@ class Query extends \think\db\Query
      * @email liujunyi_coder@163.com
      * @time 2021年10月03日 20:54
      */
-    public function autoSearch()
+    public function autoSearch(...$args)
     {
         $params = empty($params) ? request()->param() : $params;
-
         if (empty($params)) {
             return $this;
         }
-
+        //允许排序的字段
+        $args = array_map(function ($item) {
+            return Str::studly($item);
+        }, $args);
         foreach ($params as $field => $value) {
+            if (count($args) > 0 && !in_array(Str::studly($field), $args)) {
+                continue;
+            }
             $method = 'search' . Str::studly($field) . 'Attr';
             //只要不是null,空字符,空数组,就可以进行搜索
             if ($value !== null && $value !== '' && $value !== [] && method_exists($this->model, $method)) {
